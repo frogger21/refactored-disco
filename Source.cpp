@@ -155,8 +155,6 @@ int main() {
 	vec_maxheap.push_back(NULL);
 	int int_count = 0;
 	int int_minSize, int_maxSize;
-	double dbl_sum = 0.0;
-	double dbl_temp;
 	double dbl_median = 0.0; //initialize median
 	bool b_avg = 0; //0 = don't avg median, 1 = avg the median i.e. even numbers 1 2 3 4, median is 2.5. while 0 option is 2
 	
@@ -266,11 +264,8 @@ int main() {
 			*/
 		} //end of if
 		vec_median.push_back(dbl_median);
-		std::cout << int_count << " : " <<  vec_median[int_count - 1] << endl;
-		dbl_temp = vec_median[int_count - 1];
-		dbl_sum += dbl_temp;
+		std::cout << "Median at k=" << int_count << " : " <<  vec_median[int_count - 1] << endl;
 	} //end of for
-	cout << "SUM: " << (int)dbl_sum%10000 << endl;
 
 
 	//fin
