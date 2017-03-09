@@ -124,7 +124,7 @@ void f_printHeap(vector<double> &vecF) {
 
 int main() {
 	//reading file to input into a vector
-	const string str_readfile = "D:/coursera/stanford data struc and algos/6/Median.txt";
+	const string str_readfile = "D:/Median.txt";
 	vector<double> vec_storeinputs;
 	ifstream std_inputFile;
 	std_inputFile.open(str_readfile);
@@ -162,15 +162,12 @@ int main() {
 	
 	//start streaming the numbers
 	for (int i = 0; i < vec_storeinputs.size(); i++) {
-		//cout << vec_storeinputs[i] << endl;
-		//cout << dbl_median << endl;
 		int_count += 1;
 		int_minSize = vec_minheap.size()-1; //b/c we push_back(NULL)
 		int_maxSize = vec_maxheap.size()-1; //ditto
 		
 		//3 cases, minSize < maxSize, minSize == maxSize, minSize > maxSize
 		if (int_minSize == int_maxSize) {
-			//cout << "A\n";
 			//the trees are already balanced
 			if (vec_storeinputs[i] >= dbl_median) {
 				vec_minheap.push_back(vec_storeinputs[i]);
@@ -183,6 +180,7 @@ int main() {
 				dbl_median = vec_maxheap[1];
 			}
 			//now one heap is bigger than the other heap by exactly 1 element
+			
 			/*
 			cout << "L: ";
 			f_printHeap(vec_maxheap);
@@ -192,7 +190,6 @@ int main() {
 		} 
 		else if(int_minSize > int_maxSize) {
 			//minHeap bigger than maxHeap
-			//cout << "B\n";
 			if (vec_storeinputs[i] >= dbl_median) {
 				//need to add to minheap but it's already bigger so balance the trees
 				vec_maxheap.push_back(vec_minheap[1]);
@@ -221,6 +218,7 @@ int main() {
 					dbl_median = vec_maxheap[1];
 				}
 			}
+			
 			/*
 			cout << "L: ";
 			f_printHeap(vec_maxheap);
@@ -229,7 +227,6 @@ int main() {
 			*/
 		}
 		else if (int_minSize < int_maxSize) {
-			//cout << "C\n";
 			//minHeap smaller than maxHeap
 			if (vec_storeinputs[i] >= dbl_median) {
 				//we need to add this to minheap
@@ -260,6 +257,7 @@ int main() {
 					dbl_median = vec_maxheap[1];
 				}
 			}
+			
 			/*
 			cout << "L: ";
 			f_printHeap(vec_maxheap);
