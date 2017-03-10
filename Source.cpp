@@ -133,6 +133,7 @@ int main() {
 		while (getline(std_inputFile, str_line)) {
 			f_split(str_line, vec_storeinputs);
 		}
+		std_inputFile.close();
 	}
 
 	//just visual check if vector holds proper elements
